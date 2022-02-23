@@ -20,6 +20,32 @@
 
     .option{
       padding: 10px 15px;
+      cursor: pointer;
+    }
+  }
+}
+
+
+@media (max-width: 480px) {
+  .header {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  
+    .logo-container{
+      height: 100%;
+      width: 50px;
+      padding: 10px;
+    }
+  
+    .options{
+
+  
+      .option{
+        padding: 5px 15px;
+      }
     }
   }
 }
