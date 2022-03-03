@@ -3,17 +3,16 @@ import CollectionItem from "../collection-item/collection-item.component";
 
 import "./collection-preview.style.scss";
 
-const CollectionPreview = ({ title, items, history }) => {
-  console.log(history);
+const CollectionPreview = ({ title, items }) => {
   return (
     <div className="collection-preview">
       {/* <Link to={history.push(title)}>{title.toUpperCase()}</Link> */}
       <h1 className="title">{title.toUpperCase()}</h1>
       <div className="preview">
         {items
-          .filter((item, idx) => idx < 4)
-          .map(({ id, name, ...otherItemProps }) => (
-            <CollectionItem key={name + id} name={name} {...otherItemProps} />
+          .filter((item, idx) => idx < 3)
+          .map((item) => (
+            <CollectionItem key={item.name + item.id}  item={item} />
           ))}
       </div>
     </div>
