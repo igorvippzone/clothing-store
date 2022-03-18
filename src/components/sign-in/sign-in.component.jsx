@@ -56,14 +56,14 @@ class SignIn extends React.Component {
           <FormInput
             name="password"
             type="password"
-            label="Password"
+            label="Пароль"
             autoComplete="current-password"
             value={this.state.password}
             handleChange={this.handleChange}
             required
           />
           <div className="buttons">
-            <CustomButton type="submit">SIGN IN</CustomButton>
+            <CustomButton type="submit">ВОЙТИ</CustomButton>
             <CustomButton type="button" onClick={signInWithGoogle} isGoogleSignIn>
               Войти с Google
             </CustomButton>

@@ -39,3 +39,25 @@
     font-size: 24px;
   }
 }
+
+@media (max-width: 900px) {
+  .checkout-page {
+    width: 100%;
+    // min-height: 90vh;
+    display: flex;
+    // padding: 0 20px;
+    // margin: 0;
+
+  }
+}
+
+@media (max-width: 900px) {
+  .checkout-page {
+    width: 100%;
+    min-height: 50vh;
+    // display: flex;
+    padding: 0 15px;
+    margin: 0;
+
+  }
+}

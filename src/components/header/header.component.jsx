@@ -1,53 +1,48 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
 import { auth } from "../../firebase/firebase.utils";
 
 import { ReactComponent as Logo } from "../../assets/crown.svg";
+import {
+  HeaderContainer,
+  LogoContainer,
+  OptionsContainer,
+  OptionLink,
+} from "./header.styles";
 
-import "./header.style.scss";
 import CartIcon from "../cart-icon/cart-item.component";
 import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 import { selectCartHidden } from "../../redux/cart/cart.selector";
-import { selectCurrentUser } from '../../redux/user/user.selectors'
+import { selectCurrentUser } from "../../redux/user/user.selectors";
 
 const Header = ({ currentUser, hidden }) => (
-  <div className="header">
-    <Link className="logo-container" to="/">
+  <HeaderContainer>
+    <LogoContainer to="/">
       <Logo className="logo" />
-    </Link>
-    <div className="options">
-      <Link className="option" to="/shop">
-        SHOP
-      </Link>
-      <Link className="option" to="/shop">
-        CONTACT
-      </Link>
+    </LogoContainer>
+    <OptionsContainer>
+      <OptionLink to="/shop">МАГАЗИН</OptionLink>
+      <OptionLink to="/shop">КОНТАКТЫ</OptionLink>
 
       {currentUser ? (
-        <div className="option" onClick={() => auth.signOut()}>
-          SIGN OUT
-        </div>
+        <OptionLink as="div" onClick={() => auth.signOut()}>
+          ВЫЙТИ
+        </OptionLink>
       ) : (
-        <Link className="option" to="/sign">
-          SIGN IN
-        </Link>
+        <OptionLink to="/sign">ВОЙТИ</OptionLink>
       )}
 
       <CartIcon />
-    </div>
-    {
-      hidden ? null : <CartDropdown />
-    }
-    
-  </div>
+    </OptionsContainer>
+    {hidden ? null : <CartDropdown />}
+  </HeaderContainer>
 );
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
-  hidden: selectCartHidden
+  hidden: selectCartHidden,
 });
 
 export default connect(mapStateToProps)(Header);

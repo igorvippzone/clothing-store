@@ -66,7 +66,7 @@ class SignUp extends React.Component {
             name="displayName"
             value={displayName}
             onChange={this.handleChange}
-            label="Display Name"
+            label="Ваше Имя"
             required
           />
 
@@ -86,7 +86,7 @@ class SignUp extends React.Component {
             value={password}
             autoComplete="new-password"
             onChange={this.handleChange}
-            label="Password"
+            label="Пароль"
             required
           />
 
@@ -96,11 +96,11 @@ class SignUp extends React.Component {
             value={confirmPassword}
             autoComplete="new-password"
             onChange={this.handleChange}
-            label="Confirm Password"
+            label="Повторите Пароль"
             required
           />
 
-          <CustomButton type="submit">SIGN UP</CustomButton>
+          <CustomButton type="submit">ЗАРЕГИСТРИРОВАТЬСЯ</CustomButton>
         </form>
       </div>
     );
